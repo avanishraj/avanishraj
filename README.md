@@ -1,10 +1,10 @@
 ![logo](https://github.com/avanishraj/avanishraj/blob/main/technology-digital-network-data-adobe.jpeg)
 <h1 align="center">Hi 👋, I'm Avanish Raj Singh</h1>
 <h3 align="center">Flutter developer and web designer with a passion for exploring new technologies. Currently pursuing a BTech in University School of Automation and Robotics in Internet of Things. Currently learning data analysis and AI to expand my skill set. Proficient in Firebase and experienced in various related skills. Always striving to learn more and build better applications.</h3>
-<img align="right" alt="coding" width = "200" src ="https://media1.giphy.com/media/RbDKaczqWovIugyJmW/giphy.gif">
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=avanishraj&label=Profile%20views&color=0e75b6&style=flat" alt="avanishraj" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=avanishraj" alt="avanishraj" /></a> </p>
+<img align="right" alt="coding" width = "250" src ="https://media1.giphy.com/media/RbDKaczqWovIugyJmW/giphy.gif">
 
 - 🔭 I’m currently working on **Smart Glasses**
 
