@@ -16,7 +16,7 @@
 
 - 📫 How to reach me **avanishraj005@gmail.com**
 
-- 📄 Know about my experiences [https://drive.google.com/file/d/1BQW1vj9jaQHgsySw3XifKrcDvNCwL5F2/view?usp=share_link](https://drive.google.com/file/d/1BQW1vj9jaQHgsySw3XifKrcDvNCwL5F2/view?usp=share_link)
+- 📄 Know about my experiences [https://drive.google.com/file/d/1bxwA-p3OKz7K1vS7tq3rgQtTxbdV8-09/view?usp=share_link](https://drive.google.com/file/d/1bxwA-p3OKz7K1vS7tq3rgQtTxbdV8-09/view?usp=share_link)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
