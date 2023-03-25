@@ -4,7 +4,7 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=avanishraj&label=Profile%20views&color=0e75b6&style=flat" alt="avanishraj" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=avanishraj" alt="avanishraj" /></a> </p>
-<img align="right" alt="coding" width = "230" height = "330" src ="https://image.lexica.art/full_jpg/0b6f8510-5250-4ddd-a40f-59f02510a93e">
+<img align="right" alt="coding" width = "210" height = "300" src ="https://image.lexica.art/full_jpg/0b6f8510-5250-4ddd-a40f-59f02510a93e">
 
 - 🔭 I’m currently working on **Smart Glasses**
 
