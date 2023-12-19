@@ -1,6 +1,6 @@
 ![logo](https://github.com/avanishraj/avanishraj/blob/main/technology-digital-network-data-adobe.jpeg)
 <h1 align="center">Hi 👋, I'm Avanish Raj Singh</h1>
-<h3 align="center">Flutter developer and web designer with a passion for exploring new technologies. Currently pursuing a BTech in University School of Automation and Robotics in Internet of Things. Currently learning data analysis and AI to expand my skill set. Proficient in Firebase and experienced in various related skills. Always striving to learn more and build better applications.</h3>
+<h3 align="center">I'm a Flutter Lead at SDC, a student-led organization specializing in software development. My expertise lies in cross-platform mobile development using Flutter, and I have a strong background in backend development with Java and Spring frameworks. I've successfully delivered innovative solutions for complex projects involving computer vision and data analysis. Currently pursuing a B.Tech in Industrial Internet of Things at USAR, I'm passionate about leveraging technology to create impactful solutions. Let's connect and explore collaborative opportunities in the dynamic world of technology and automation! 🚀</h3>
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=avanishraj&label=Profile%20views&color=0e75b6&style=flat" alt="avanishraj" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=avanishraj" alt="avanishraj" /></a> </p>
