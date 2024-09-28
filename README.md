@@ -81,7 +81,7 @@ I'm a **Software Engineer** with expertise in building robust, scalable systems 
 
 ---
 
-### 🖼️ Random Dev Meme
+### 🖼️ Random Dev 
 
 <p align="center">
   <img src="https://readme-jokes.vercel.app/api?hideBorder&theme=radical" alt="Dev Meme"/>
