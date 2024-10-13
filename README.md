@@ -30,7 +30,7 @@ I'm a **Software Engineer** with expertise in building robust, scalable systems 
 ### 🏆 Achievements
 
 - **HackWithInfy Top 100 Finalist**: Recognized as one of the top minds in India.
-- **LeetCode Knight**: Achieved a **2000+ rating** and earned the Knight badge, ranking in the top 2.8%.
+- **LeetCode Knight**: Achieved a **2100+ rating** and earned the Knight badge, ranking in the top 2.8%.
 
 ---
 
