@@ -1,7 +1,5 @@
-![Header Image](https://preview.redd.it/which-tool-is-used-to-make-deployment-diagrams-animated-v0-9mglchznt9db1.gif?width=1540&auto=webp&s=b355f467c74a1ced5b96a44fb11fc75acc30f67d)
-
 <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=4000&color=36BCF7&center=true&vCenter=true&width=440&lines=Hi+%F0%9F%91%8B%2C+I'm+Avanish+Raj+Singh;Flutter+Lead+Developer;Backend+Developer;DevOps+Engineer">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=4000&color=36BCF7&center=true&vCenter=true&width=440&lines=Hi+%F0%9F%91%8B%2C+I'm+Avanish+Raj+Singh">
 </h1>
 
 <h3 align="center">Passionate about building scalable apps and exploring cloud technologies!</h3>
