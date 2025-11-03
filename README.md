@@ -2,7 +2,7 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=4000&color=36BCF7&center=true&vCenter=true&width=440&lines=Hi+%F0%9F%91%8B%2C+I'm+Avanish+Raj+Singh">
 </h1>
 
-<h3 align="center">Passionate about building scalable apps and exploring cloud technologies!</h3>
+<h3 align="center">Passionate about building GenAI and agentic AI applications, developing scalable systems, and exploring ML/DL and backend technologies!</h3>
 
 <p align="center">
   <a href="https://github.com/avanishraj">
@@ -21,7 +21,7 @@
 
 ### 🚀 About Me
 
-I'm a **Software Engineer** with expertise in building robust, scalable systems across mobile and backend development. Proficient in Spring Boot, DevOps practices, Cloud Infrastructure, and Generative AI, I excel at designing and deploying innovative solutions that drive business impact—currently pursuing my B.Tech. in Industrial Internet of Things, I am passionate about leveraging cutting-edge technologies to create intelligent, end-to-end systems that integrate seamlessly across platforms.
+I'm an Engineer specializing in building intelligent, scalable systems across AI, backend, and mobile platforms. Skilled in Generative and Agentic AI, ML/DL, Spring Boot, and Cloud Infrastructure, I focus on developing high-performance solutions that blend innovation with real-world impact.
 
 ---
 
