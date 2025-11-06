@@ -28,7 +28,7 @@ I'm an Engineer specializing in building intelligent, scalable systems across AI
 ### 🏆 Achievements
 
 - **HackWithInfy Top 100 Finalist**: Recognized as one of the top minds in India.
-- **LeetCode Knight**: Achieved a **2100+ rating** and earned the Knight badge, ranking in the top 2.8%.
+- **LeetCode Knight**: Achieved a **2250+ rating** and earned the Guardian badge, ranking in the top 0.6%.
 
 ---
 
