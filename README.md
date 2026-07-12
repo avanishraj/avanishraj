@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:36BCF7,100:F72585&height=180&section=header&text=Avanish%20Raj%20Singh&fontSize=40&fontAlign=50&fontAlignY=38&fontColor=ffffff&animation=fadeIn&desc=Building%20GenAI%20%26%20Agentic%20AI%20systems%20that%20ship&descAlign=50&descAlignY=58&descSize=17" width="100%"/>
+<p align="center">
+ <img src="https://capsule-render.vercel.app/api?type=waving&color=0:36BCF7,100:F72585&height=180&section=header&text=Avanish%20Raj%20Singh&fontSize=40&fontColor=ffffff&animation=fadeIn"/>
+</p>
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=26&duration=3200&pause=900&color=36BCF7&center=true&vCenter=true&width=650&lines=Hi+%F0%9F%91%8B%2C+I'm+Avanish;GenAI+%26+Agentic+AI+Engineer;Backend+%2B+Cloud+Systems+Builder;ML%2FDL+Enthusiast+%F0%9F%A4%96" alt="Typing SVG" />
 
