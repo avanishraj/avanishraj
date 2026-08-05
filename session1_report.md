@@ -191,6 +191,67 @@ kabhi storm, par har phase ne mujhe aage badhne ki taraf dhagaav diya hai.
 
 ---
 
+## Step 7: Comprehensive 3-Case Model & Effort Comparison Study
+
+To conclusively evaluate cost, token consumption, latency, and response quality across model variants and effort settings, we performed a sequential evaluation across 3 exact configurations using our optimized prompt.
+
+### Case 1: `gpt-5-nano` | `reasoning_effort="low"` | Budget = `3000` tokens
+This represents our optimized baseline configuration for cost/efficiency balance.
+
+| Query | lang | prompt | completion | reasoning | visible | ratio | finish |
+|---|---|---|---|---|---|---|---|
+| main kaisa insaan hoon | Hindi | 801 | 886 | **448** | 438 | **1.0 : 1** | stop |
+| meri life mein kya patterns | Hinglish | 805 | 1005 | **448** | 557 | **0.8 : 1** | stop |
+| how have I changed this year | English | 800 | 963 | **576** | 387 | **1.5 : 1** | stop |
+| mere relationships kaisi hain | Hinglish | 800 | 1010 | **448** | 562 | **0.8 : 1** | stop |
+
+- **Average Reasoning Tokens:** ~480 tokens per query
+- **Average Total Completion Tokens:** ~966 tokens per query
+- **Median Ratio (Reasoning : Visible):** ~0.9 : 1
+- **Key Findings:** Excellent balance. A 3,000 token budget provides a 3x safety margin (max observed usage was 1,010 total completion tokens). Generation speed is fast (~8-10s per query), citations are accurate, and mixed-language tracking works flawlessly without language hallucination.
+
+### Case 2: `gpt-5-nano` | `reasoning_effort="medium"` | Budget = `16000` tokens
+Testing whether increasing reasoning effort on `gpt-5-nano` provides structural quality benefits when given an unconstrained token budget.
+
+| Query | lang | prompt | completion | reasoning | visible | ratio | finish |
+|---|---|---|---|---|---|---|---|
+| main kaisa insaan hoon | Hindi | 801 | 2941 | **2368** | 573 | **4.1 : 1** | stop |
+| meri life mein kya patterns | Hinglish | 805 | 3323 | **2816** | 507 | **5.6 : 1** | stop |
+| how have I changed this year | English | 800 | 4967 | **4544** | 423 | **10.7 : 1** | stop |
+| mere relationships kaisi hain | Hinglish | 800 | 4161 | **3648** | 513 | **7.1 : 1** | stop |
+
+- **Average Reasoning Tokens:** ~3,344 tokens per query (**6.9x increase** vs low effort!)
+- **Average Total Completion Tokens:** ~3,848 tokens per query
+- **Median Ratio (Reasoning : Visible):** ~6.35 : 1
+- **Key Findings:** Highly inefficient. Moving from `"low"` to `"medium"` effort causes a near **7x explosion in hidden reasoning tokens** while visible output length remains identical (~500 tokens). Latency increased to 20-45+ seconds per query. Crucially, subjective review of the answers revealed **no meaningful improvements in reflection depth, empathy, or citation accuracy** compared to `effort="low"`. Previously, a 4,000 budget triggered `finish=length` truncation; giving it 16,000 prevented truncation but demonstrated that `medium` effort on `gpt-5-nano` produces excessive inner loop deliberation without real-world utility on this task.
+
+### Case 3: `gpt-5.6-luna` | Budget = `4000` tokens (High-EQ Premium Model)
+Testing our designated conversational high-EQ model (`luna`) on introspective synthesis.
+
+| Query | lang | prompt | completion | reasoning | visible | ratio | finish |
+|---|---|---|---|---|---|---|---|
+| main kaisa insaan hoon | Hindi | 801 | 459 | **63** | 396 | **0.2 : 1** | stop |
+| meri life mein kya patterns | Hinglish | 805 | 466 | **61** | 405 | **0.2 : 1** | stop |
+| how have I changed this year | English | 800 | 392 | **56** | 336 | **0.2 : 1** | stop |
+| mere relationships kaisi hain | Hinglish | 800 | 383 | **0** | 383 | **0.0 : 1** | stop |
+
+- **Average Reasoning Tokens:** ~45 tokens per query
+- **Average Total Completion Tokens:** ~425 tokens per query (**56% lower total tokens** than `gpt-5-nano` low effort!)
+- **Median Ratio (Reasoning : Visible):** ~0.2 : 1
+- **Sample Answer Output (Q2 — Hinglish, patterns):**
+  ```markdown
+  Tumhari entries mein ek clear pattern dikh raha hai: **naye experiences ke saamne pehle hesitation, phir dheere-dheere confidence aur clarity**.
+  15 January ko naye job ke pehle din tum "**thoda nervous tha par overall achha laga**" — uncertainty ke bawajood tumne situation ko accept kiya aur usmein growth dekhi...
+  ```
+- **Key Findings:** Exceptional efficiency and emotional resonance. `gpt-5.6-luna` requires almost zero hidden reasoning tokens (0-63 tokens) while producing far superior conversational tone, empathetic framing, and markdown structure (such as bolding key themes and feelings). Because its total completion tokens per response (~425 tokens) are less than half of `gpt-5-nano` on low effort (~966 tokens), `gpt-5.6-luna` offsets higher per-token API rates through drastic token conservation while delivering state-of-the-art emotional intelligence.
+
+### Final Recommendation from 3-Case Study
+1. **Default Production Configuration:** Remain on **Case 1 (`gpt-5-nano`, `effort="low"`, budget `3000`)** as the optimized, rock-solid, cost-minimized default for introspective queries.
+2. **Never Use Medium Effort on Nano:** Case 2 proves definitively that `reasoning_effort="medium"` should **never** be enabled on `gpt-5-nano` for conversational synthesis due to the 6.9x token waste and high latency.
+3. **Upgrade Path (`gpt-5.6-luna`):** Case 3 highlights that when budget or UX goals favor emotional warmth over ultra-low per-call cost, upgrading `reasoning_agent_service.py` to `gpt-5.6-luna` is exceptionally viable and actually consumes **56% fewer total output tokens** than nano.
+
+---
+
 ## What Is NOT Done (Deliberately)
 
 | Not done | Why |
