@@ -120,33 +120,51 @@ Removes a second `gpt-5-nano` round-trip (~1-2s) on every FACTUAL query. The bas
 
 ---
 
-## ✅ Live Measurement Results
+## ✅ Live Measurement Results (Baseline vs Optimized)
 
-Tested via `scripts/test_reasoning_tokens.py` — 4 queries, direct service call.
+Tested via `scripts/test_reasoning_tokens.py` — 4 queries across Hindi, Hinglish, and English.
 
-### Attempt 1: `reasoning_effort="medium"` — FAILED
+### Step 1 Baseline: Old Code (Default / Medium Effort, Forced JSON, Raw Floats)
+
+| Query | lang | prompt | completion | reasoning | visible | ratio | finish |
+|---|---|---|---|---|---|---|---|
+| main kaisa insaan hoon | Hindi | 1021 | 3079 | **2688** | 391 | **6.9** | stop |
+| meri life mein kya patterns | Hinglish | 1024 | 3811 | **3392** | 419 | **8.1** | stop |
+| how have I changed this year | English | 1020 | 4437 | **4032** | 405 | **10.0** | stop ⚠️* |
+| mere relationships kaisi hain | Hinglish | 1019 | 2678 | **2304** | 374 | **6.2** | stop |
+
+*⚠️ Note on English query:* In the old code, without explicit `{detected_language}` injection, the model answered in Hinglish instead of English and burned 4,032 reasoning tokens trying to reconcile mixed languages.
+- **Average Reasoning Tokens per Query:** 3,104 tokens
+- **Median Ratio:** ~7.5 : 1 (Model spent 7.5x more tokens thinking in secret than writing visible text!)
+
+---
+
+### Step 5 Attempt 1: New Prompt + `reasoning_effort="medium"` — FAILED
 
 | Query | lang | reasoning | visible | ratio | finish |
 |---|---|---|---|---|---|
 | main kaisa insaan hoon | Hindi | 4000 | 1 | 4000.0 | **length** ❌ |
 | meri life mein kya patterns | Hinglish | 4000 | 1 | 4000.0 | **length** ❌ |
 
-`medium` burned the entire 4000-token budget on reasoning, producing zero visible output on every query. Switched to `reasoning_effort="low"` + raised `max_completion_tokens` to 6000. Commit: `32c0bc2`.
+`medium` effort burned the entire 4000-token budget on reasoning, producing zero visible output. Switched to `reasoning_effort="low"` + raised `max_completion_tokens` to 6000. Commit: `32c0bc2`.
 
 ---
 
-### Attempt 2: `reasoning_effort="low"` — FINAL STATE ✅
+### Step 5 Attempt 2: New Prompt + `reasoning_effort="low"` — FINAL STATE ✅
 
 | Query | lang | prompt | completion | reasoning | visible | ratio | finish |
 |---|---|---|---|---|---|---|---|
 | main kaisa insaan hoon | Hindi | 856 | 988 | 384 | 604 | **0.6** | stop ✅ |
 | meri life mein kya patterns | Hinglish | 860 | 686 | 256 | 430 | **0.6** | stop ✅ |
-| how have I changed this year | English | 855 | 923 | 576 | 347 | **1.7** | stop ✅ |
+| how have I changed this year | English | 855 | 923 | 576 | 347 | **1.7** | stop ✅ (in English!) |
 | mere relationships kaisi hain | Hinglish | 855 | 877 | 384 | 493 | **0.8** | stop ✅ |
 
-**Median ratio: 0.7** — under the 4.0 target. `finish=length`: 0 / 4.
-
-Reasoning tokens: 256–576 (down from 4000+). The model spends more tokens on visible output than on reasoning.
+### 🔥 Key Improvements Achieved:
+- **Reasoning Token Reduction: 87.1% DROP!** (Average fell from 3,104 tokens down to 400 tokens per query!)
+- **Prompt Token Savings:** ~16% fewer prompt tokens (due to removing raw float metrics and bulky JSON syntax instructions).
+- **Median Ratio: 0.7 : 1** (Well under the target of 4.0:1 — model now spends more tokens writing useful visible output than generating hidden thoughts).
+- **Bug Fix:** English query correctly answered in English due to explicit Python language parameter injection.
+- **Zero Truncation:** `finish=length`: 0 / 4.
 
 ---
 
