@@ -1,0 +1,194 @@
+python : C:\Users\avani\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\requests\__init__.py:113: 
+RequestsDependencyWarning: urllib3 (2.5.0) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported 
+version!
+At line:1 char:1
++ python scripts/test_3_cases.py 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\avani\...ported version!:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+2026-08-05 23:27:55,835 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=low | lang=Hindi
+2026-08-05 23:28:05,493 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:28:05,507 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hindi prompt=801 completion=886 reasoning=448 visible=438 ratio=1.0 finish=stop
+2026-08-05 23:28:05,508 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 5] | chars=1341
+2026-08-05 23:28:06,238 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=low | lang=Hinglish
+2026-08-05 23:28:16,361 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:28:16,363 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hinglish prompt=805 completion=1005 reasoning=448 visible=557 ratio=0.8 finish=stop
+2026-08-05 23:28:16,363 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1922
+2026-08-05 23:28:17,122 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=low | lang=English
+2026-08-05 23:28:25,073 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:28:25,074 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=English prompt=800 completion=963 reasoning=576 visible=387 ratio=1.5 finish=stop
+2026-08-05 23:28:25,075 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1591
+2026-08-05 23:28:25,779 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=low | lang=Hinglish
+2026-08-05 23:28:35,558 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:28:35,559 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hinglish prompt=800 completion=1010 reasoning=448 visible=562 ratio=0.8 finish=stop
+2026-08-05 23:28:35,559 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[2, 
+3, 4, 5] | chars=2061
+2026-08-05 23:28:36,235 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=medium | lang=Hindi
+2026-08-05 23:28:57,720 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:28:57,721 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hindi prompt=801 completion=2941 reasoning=2368 visible=573 ratio=4.1 finish=stop
+2026-08-05 23:28:57,721 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1751
+2026-08-05 23:28:58,425 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=medium | lang=Hinglish
+2026-08-05 23:29:27,278 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:29:27,281 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hinglish prompt=805 completion=3323 reasoning=2816 visible=507 ratio=5.6 finish=stop
+2026-08-05 23:29:27,282 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1705
+2026-08-05 23:29:28,000 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=medium | lang=English
+2026-08-05 23:30:05,462 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:30:05,464 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=English prompt=800 completion=4967 reasoning=4544 visible=423 ratio=10.7 finish=stop
+2026-08-05 23:30:05,465 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1553
+2026-08-05 23:30:07,445 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | model=gpt-5-nano 
+| effort=medium | lang=Hinglish
+2026-08-05 23:30:54,412 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:30:54,414 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hinglish prompt=800 completion=4161 reasoning=3648 visible=513 ratio=7.1 finish=stop
+2026-08-05 23:30:54,414 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1675
+2026-08-05 23:30:56,188 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | 
+model=gpt-5.6-luna | effort=low | lang=Hindi
+2026-08-05 23:31:01,282 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:31:01,301 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hindi prompt=801 completion=459 reasoning=63 visible=396 ratio=0.2 finish=stop
+2026-08-05 23:31:01,301 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1270
+2026-08-05 23:31:03,025 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | 
+model=gpt-5.6-luna | effort=low | lang=Hinglish
+2026-08-05 23:31:08,355 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:31:08,356 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hinglish prompt=805 completion=466 reasoning=61 visible=405 ratio=0.2 finish=stop
+2026-08-05 23:31:08,356 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1424
+2026-08-05 23:31:09,997 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | 
+model=gpt-5.6-luna | effort=low | lang=English
+2026-08-05 23:31:15,114 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:31:15,115 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=English prompt=800 completion=392 reasoning=56 visible=336 ratio=0.2 finish=stop
+2026-08-05 23:31:15,116 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[1, 
+2, 3, 4, 5] | chars=1510
+2026-08-05 23:31:16,809 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesizing | 
+model=gpt-5.6-luna | effort=low | lang=Hinglish
+
+================================================================================
+RUNNING: Case 1: gpt-5-nano | effort=low | budget=3000
+================================================================================
+
+>>> QUERY: 'main kaisa insaan hoon'  |  lang=Hindi
+--------------------------------------------------
+cited_docs : [1, 2, 3, 5]
+ERROR: 'charmap' codec can't encode characters in position 22-24: character maps to <undefined>
+
+>>> QUERY: 'meri life mein kya patterns dikh rahe hain'  |  lang=Hinglish
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+answer (1922 chars):
+Bilkul samajh aata hai tumhari timeline se kuch clear patterns ubhar ke aate hain�tumhare shabdon ki taar se main thoda sa pehchaan bana sakti hoon.
+
+- Naya environment, positive vibe, thoda nervous hona, aur phir sab theek mehsoos hona. �Aaj pehla din tha naye office mein. Sab log bahut friendly th...
+
+>>> QUERY: 'how have I changed this year'  |  lang=English
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+answer (1591 chars):
+You�ve been tracing a quiet arc from first-day nerves to proud, solo self-discovery, even when the path isn�t labeled as a milestone.
+
+- "Aaj pehla din tha naye office mein. Sab log bahut friendly the. Manager ne bola ki team flexible hai." Your first entry marks a gentler, hopeful start: the enviro...
+
+>>> QUERY: 'mere relationships kaisi hain'  |  lang=Hinglish
+--------------------------------------------------
+cited_docs : [2, 3, 4, 5]
+answer (2061 chars):
+Mere relationships kaisi hain, sochne par lagta hai ki signals thode inconsistent rahe par andar ek steady growth ki chali a rahi hai.
+
+Sabse pehli cheez: jab maine apne best friend ke saath ladai ke baare mein padha, to aapne kaha: "Rahul se badi baat ho gayi. Usne kaha ki main hamesha apni hi sunt...
+
+================================================================================
+RUNNING: Case 2: gpt-5-nano | effort=medium | budget=16000
+================================================================================
+
+>>> QUERY: 'main kaisa insaan hoon'  |  lang=Hindi
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+ERROR: 'charmap' codec can't encode characters in position 183-184: character maps to <undefined>
+
+>>> QUERY: 'meri life mein kya patterns dikh rahe hain'  |  lang=Hinglish
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+answer (1705 chars):
+Tumhare journal timeline me ek clear pattern hai: nayi shuruaat se shuru karna, phir khud se (ya family/friends ke through) emotional relief aur reflection. Yehi rhythm aage badhta hai.
+
+- 2025-01-15: "Aaj pehla din tha naye office mein. Sab log bahut friendly the. Manager ne bola ki team flexible h...
+
+>>> QUERY: 'how have I changed this year'  |  lang=English
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+answer (1553 chars):
+From the year�s arc, your own words anchor the shift so vividly: you started with curiosity and a little nerves, and you end with curiosity about direction.
+
+"Aaj pehla din tha naye office mein." (2025-01-15) That moment of nervousness slowly gave way to warmth around a flexible team.
+
+"Rahul se bad...
+
+>>> QUERY: 'mere relationships kaisi hain'  |  lang=Hinglish
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+answer (1675 chars):
+Tumhare relationships ki health tumhare entries me consistent honesty aur shared moments ke around dikh rahi hai. "Thoda nervous tha par overall achha laga." 2025-01-15
+- Friend ke saath ki jhagde ne tumhe apni baat sunne ki jarurat mehsoos karayi: "Rahul se badi baat ho gayi. Usne kaha ki main hame...
+
+================================================================================
+RUNNING: Case 3: gpt-5.6-luna | budget=4000
+================================================================================
+
+>>> QUERY: 'main kaisa insaan hoon'  |  lang=Hindi
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+ERROR: 'charmap' codec can't encode characters in position 22-29: character maps to <undefined>
+
+>>> QUERY: 'meri life mein kya patterns dikh rahe hain'  |  lang=Hinglish
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+answer (1424 chars):
+Tumhari entries mein ek clear pattern dikh raha hai: **naye experiences ke saamne pehle hesitation, phir dheere-dheere confidence aur clarity**.
+
+15 January ko naye job ke pehle din tum �**thoda nervous tha par overall achha laga**� � uncertainty ke bawajood tumne situation ko accept kiya aur usmein...
+
+>>> QUERY: 'how have I changed this year'  |  lang=English
+--------------------------------------------------
+cited_docs : [1, 2, 3, 4, 5]
+answer (1510 chars):
+You seem to have changed from someone cautiously entering a new chapter to someone more willing to examine�and shape�your life.
+
+In January, you began your new job feeling uncertain but reassured: �Thoda nervous tha par overall achha laga.� By July, that uncertainty had become visible confidence: �F...
+
+>>> QUERY: 'mere relationships kaisi hain'  |  lang=Hinglish
+--------------------------------------------------
+cited_docs : [2, 3, 4, 5]
+answer (1335 chars):
+Tumhare relationships mein **connection, honesty aur self-reflection** strong dikhte hain�lekin kabhi-kabhi tumhe apni taraf dekhne ki zaroorat mehsoos hoti hai.
+
+Rahul ke saath fight ne tumhe hurt kiya, par tumne sirf usse blame nahi kiya: **�shayad wo sahi tha. Mujhe change hona padega.�** Yeh dik...
+2026-08-05 23:31:21,079 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-05 23:31:21,081 [INFO] app.services.reasoning_agent_service: [TOKENS] layer=reasoning_agent model=gpt-5-nano 
+lang=Hinglish prompt=800 completion=383 reasoning=0 visible=383 ratio=0.0 finish=stop
+2026-08-05 23:31:21,082 [INFO] app.services.reasoning_agent_service: [REASONING AGENT] Synthesis OK | cited_docs=[2, 
+3, 4, 5] | chars=1335
