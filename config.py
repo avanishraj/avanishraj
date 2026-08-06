@@ -58,9 +58,17 @@ class Config:
     #   gpt-5.6-luna → premium emotional intelligence, single call replaces 2×mini.
     PREMIUM_LLM_MODEL: str = os.getenv("PREMIUM_LLM_MODEL", "gpt-5.6-luna")
 
-    # LLM_MODEL: Reasoning model. Reserved for INTROSPECTIVE queries and life summaries.
-    #   gpt-5-nano → optimized with effort=low and token budget=3000 for cost/speed balance.
+    # LLM_MODEL: Legacy general-purpose model key.
+    #   Still used by life_summary_service and query_routing_service.
+    #   Do NOT point this at a premium model — query routing is a hot-path classifier.
     LLM_MODEL: str = os.getenv("LLM_MODEL", "gpt-5-nano")
+
+    # REASONING_LLM_MODEL: INTROSPECTIVE synthesis ONLY (reasoning_agent_service).
+    #   Measured on 4 queries with the current prompt:
+    #     gpt-5.6-luna                 ~45 reasoning tokens, ~5s, correct 2nd-person voice
+    #     gpt-5-nano effort=low       ~480 reasoning tokens, ~9.4s, 1/4 perspective errors
+    #     gpt-5-nano effort=medium   ~3344 reasoning tokens, ~34s — never use
+    REASONING_LLM_MODEL: str = os.getenv("REASONING_LLM_MODEL", "gpt-5.6-luna")
     LLM_TEMPERATURE: float = 0.7
 
     # ENRICHMENT_MODEL: Structured JSON extraction (emotions, entities, temporal).
