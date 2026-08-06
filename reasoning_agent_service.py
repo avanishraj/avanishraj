@@ -19,11 +19,14 @@ logger = logging.getLogger(__name__)
 # Do NOT introduce literal { } characters here — they will raise KeyError.
 SYSTEM_PROMPT = """You are SmritiQ. You speak to the user like someone who has read everything they've written and remembers it. Warm, specific, never generic. Their words matter more than yours.
 
-You receive a chronological timeline of the user's journal entries. Each entry has: date, title, content, emotion, milestone flag, people, places, and attached media counts. You also receive overall trend descriptions. All values are already qualitative — use them as written.
+You receive a chronological timeline of entries. Most are the user's own journal entries (Source: personal). Some may be shared by others in a group (Source: group — with the author's name and group name). Treat group entries as context the user has seen, NOT as something the user wrote. Never attribute group entries to the user.
+
+Each entry has: date, title, content, source, emotion, milestone flag, people, places, and attached media counts. You also receive overall trend descriptions. All values are already qualitative — use them as written.
 
 Write a personal reflection answering the user's question.
 
 - Quote the user's own words directly wherever they carry the feeling — in quotation marks, with the date. Their words first, your framing second.
+- For group entries, say who shared it and in which group — never present it as the user's own experience.
 - Ground everything strictly in the entries provided. Invent nothing.
 - Name emotional patterns or shifts you notice across the timeline.
 - Give weight to entries marked as milestones.
@@ -105,6 +108,11 @@ class ReasoningAgentService:
                 num_encrypted_auds = sum(1 for asset in (ctx.get('media', []) or []) if isinstance(asset, dict) and asset.get('type') == 'audio')
                 total_audios = num_legacy_auds + num_encrypted_auds
 
+                # Detect group vs personal source
+                source = ctx.get("source", "personal")
+                author_name = ctx.get("author_name", "") or ctx.get("shared_by", "")
+                group_name = ctx.get("group_name", "")
+
                 timeline_items.append({
                     "memoryId": mid,
                     "date": event_date,
@@ -115,7 +123,10 @@ class ReasoningAgentService:
                     "persons": persons,
                     "places": places,
                     "total_images": total_images,
-                    "total_audios": total_audios
+                    "total_audios": total_audios,
+                    "source": source,
+                    "author_name": author_name,
+                    "group_name": group_name,
                 })
 
             # Sort timeline oldest to newest
@@ -170,9 +181,18 @@ class ReasoningAgentService:
                 else:
                     emo_str = "not recorded"
 
+                # Format source attribution line
+                if item.get("source") == "group":
+                    author = item.get('author_name') or 'someone'
+                    grp = item.get('group_name') or 'a group'
+                    source_line = f"Source: group (shared by {author} in '{grp}')"
+                else:
+                    source_line = "Source: personal"
+
                 timeline_str_parts.append(
                     f"[Doc {doc_id}] Date: {dt_str}\n"
                     f"Title: {item['title']}\n"
+                    f"{source_line}\n"
                     f"Content: {item['excerpt']}\n"
                     f"Emotion: {emo_str}\n"
                     f"Milestone: {'yes' if is_milestone(item['importance']) else 'no'}\n"
@@ -227,7 +247,7 @@ class ReasoningAgentService:
             )
             messages.append({"role": "user", "content": user_content})
 
-            target_model = model_override or config.LLM_MODEL
+            target_model = model_override or config.REASONING_LLM_MODEL
             target_max_tokens = max_completion_tokens_override if max_completion_tokens_override is not None else 3000
             target_effort = reasoning_effort_override if reasoning_effort_override is not None else "low"
 
@@ -245,18 +265,22 @@ class ReasoningAgentService:
             try:
                 response = client.chat.completions.create(**create_kwargs)
             except Exception as call_err:
-                # If model doesn't support reasoning_effort (e.g. non-reasoning model), retry without it
-                if "reasoning_effort" in create_kwargs:
+                # Retry ONLY when the model rejected reasoning_effort itself.
+                # Never blanket-retry: rate limits and timeouts must propagate.
+                if "reasoning_effort" in create_kwargs and "reasoning_effort" in str(call_err):
+                    logger.warning(
+                        f"[REASONING AGENT] {target_model} rejected reasoning_effort; retrying without it."
+                    )
                     create_kwargs.pop("reasoning_effort")
                     response = client.chat.completions.create(**create_kwargs)
                 else:
-                    raise call_err
+                    raise
 
             # Record usage
             try:
                 from app.utils.usage_tracker import record_call
                 if response.usage:
-                    record_call("reasoning_synthesis", config.LLM_MODEL,
+                    record_call("reasoning_synthesis", target_model,
                                 response.usage.prompt_tokens, response.usage.completion_tokens)
             except Exception as tr_err:
                 logger.error(f"Failed to record reasoning synthesis usage: {tr_err}")
@@ -271,7 +295,7 @@ class ReasoningAgentService:
                 pass
             _visible = max(1, (response.usage.completion_tokens or 0) - _rt)
             logger.info(
-                f"[TOKENS] layer=reasoning_agent model={config.LLM_MODEL} "
+                f"[TOKENS] layer=reasoning_agent model={target_model} "
                 f"lang={detected_language} "
                 f"prompt={response.usage.prompt_tokens} "
                 f"completion={response.usage.completion_tokens} "
